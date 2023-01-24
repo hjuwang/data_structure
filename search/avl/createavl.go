@@ -1,4 +1,4 @@
-package balancebintree
+package avl
 
 // InsertAVL 递归生成平衡二叉树
 func InsertAVL(T *BiTree, e int, taller *bool) bool {

@@ -1,4 +1,4 @@
-package balancebintree
+package avl
 
 // BiTNode 平衡二叉树节点定义
 type BiTNode struct {

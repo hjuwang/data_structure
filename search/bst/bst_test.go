@@ -1,6 +1,8 @@
-package binsorttree
+package bst
 
-func BinSortTree() {
+import "testing"
+
+func TestBinSortTree(t *testing.T) {
 
 	//生成二叉树 &tree是指向树的指针
 	var tree BiTree

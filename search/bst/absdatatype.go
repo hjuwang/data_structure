@@ -1,4 +1,4 @@
-package binsorttree
+package bst
 
 import "fmt"
 
@@ -39,7 +39,7 @@ func InsertBST(T *BiTree, key int) bool {
 	}
 }
 
-// 删除二叉排序树中的节点
+// DeleteBST 删除二叉排序树中的节点
 func DeleteBST(T *BiTree, key int) bool {
 	if *T == nil {
 		return false
@@ -56,7 +56,7 @@ func DeleteBST(T *BiTree, key int) bool {
 	return true
 }
 
-// 删除树中的节点p,并重接左右子树
+// Delete 删除树中的节点p,并重接左右子树
 func Delete(p *BiTree) bool {
 	//定义两个可以指向树节点的指针变量
 	var q, s BiTree

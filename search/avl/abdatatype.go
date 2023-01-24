@@ -1,4 +1,4 @@
-package balancebintree
+package avl
 
 // 定义常量
 const LH, EH, RH = 1, 0, -1
