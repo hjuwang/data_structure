@@ -1,6 +1,9 @@
 package btree
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestBtree(t *testing.T) {
 
@@ -14,5 +17,14 @@ func TestBtree(t *testing.T) {
 		if s.tag == 0 {
 			InsertBtree(&T, r[i], s.pt, s.i)
 		}
+	}
+
+	fmt.Println(T)
+	s = SearchBtree(T, 58)
+	if s.tag != 0 {
+		fmt.Printf("找到如下：")
+		print(*(s.pt), s.i)
+	} else {
+		fmt.Printf("没找到\n")
 	}
 }

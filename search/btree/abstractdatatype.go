@@ -38,10 +38,11 @@ func SearchBtree(T BTree, K int) Result {
 		}
 	}
 	r.i = i
+
 	if found {
 		r.pt = p
 		r.tag = 1
-	} else { //如果每找到，返回要插入节点的信息
+	} else { //如果没找到，返回要插入节点的信息
 		r.pt = q
 		r.tag = 0
 	}
@@ -89,7 +90,6 @@ func NewRoot(T *BTree, key int, ap BTree) {
 	if (*T).node[0].ptr != nil { //如果有孩子，请相认
 		(*T).node[0].ptr.parent = *T
 	}
-	(*T).node[0].key = 1
 	(*T).parent = nil
 	(*T).keynum = 1
 	(*T).node[1].key = key
@@ -106,7 +106,6 @@ func NewRoot(T *BTree, key int, ap BTree) {
 func InsertBtree(T *BTree, key int, q BTree, i int) {
 	var ap BTree
 	finished := false
-	ap = nil
 	var s, rx int
 	rx = key
 	for q != nil && !finished { //如果节点q存在，且尚未完成插入操作
@@ -122,13 +121,12 @@ func InsertBtree(T *BTree, key int, q BTree, i int) {
 				i = Search(q, key) //在双亲中查找key插入的位置
 			}
 		}
-		if !finished {
-			NewRoot(T, rx, ap)
-		}
-
+	}
+	if !finished {
+		NewRoot(T, rx, ap)
 	}
 }
 
-func Print(c BTree, i int) {
+func print(c BTNode, i int) {
 	fmt.Printf("%d", c.node[i].key)
 }
