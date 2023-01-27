@@ -19,7 +19,6 @@ func TestBtree(t *testing.T) {
 		}
 	}
 
-	fmt.Println(T)
 	s = SearchBtree(T, 58)
 	if s.tag != 0 {
 		fmt.Printf("找到如下：")
