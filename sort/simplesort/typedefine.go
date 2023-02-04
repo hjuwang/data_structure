@@ -1,12 +1,10 @@
 package simplesort
 
-import "fmt"
-
 const MAXSIZE = 10000
 
 // SqlList 常用的排序顺序表
 type SqlList struct {
-	r      [MAXSIZE + 1]int
+	r      []int
 	length int //记录顺序表的长度
 }
 
@@ -18,16 +16,8 @@ func Swap(L *SqlList, i, j int) {
 // InitSqlList 顺序表初始化
 func InitSqlList(demo []int, L *SqlList) {
 	L.length = len(demo)
-	for key, _ := range demo {
-		L.r[key] = demo[key]
+	L.r = make([]int, L.length+1)
+	for i := 1; i < L.length+1; i++ { //从第一个开始复制
+		L.r[i] = demo[i-1]
 	}
-}
-
-func ViewSqlList(L *SqlList) {
-	fmt.Printf("[")
-	for i := 0; i < L.length; i++ {
-		fmt.Printf("%d,", L.r[i])
-	}
-	fmt.Printf("]")
-
 }
