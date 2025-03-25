@@ -25,3 +25,5 @@ func InsertSort(array []int) []int {
 	}
 	return array
 }
+
+// 时间复杂度为 n^2

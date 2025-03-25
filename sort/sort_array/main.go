@@ -15,6 +15,14 @@ func main() {
 	//sort = SelectSort(list)
 	//fmt.Println(sort)
 
-	insertSort := InsertSort(list)
-	fmt.Println(insertSort)
+	//insertSort := InsertSort(list)
+	//fmt.Println(insertSort)
+
+	sort := MergeSort(list)
+	fmt.Println(sort)
+
+	//js := []int{1, 3, 5, 7, 9}
+	//os := []int{2, 4, 6, 8, 10}
+	//ints := merge(js, os)
+	//fmt.Println(ints)
 }
