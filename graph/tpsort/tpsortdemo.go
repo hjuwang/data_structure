@@ -17,7 +17,7 @@ func TPSortDemo(G *GraphAdjList) bool {
 		for i := 0; i < len(G.AdjList); i++ {
 			//找到以后输出并删除
 			if G.AdjList[i].In == 0 {
-				fmt.Printf("V%d,", G.AdjList[i].Data)
+				fmt.Printf("Val%d,", G.AdjList[i].Data)
 				ALDeleteVex(G, i)
 				count++
 				existence = true

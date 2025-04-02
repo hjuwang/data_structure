@@ -1,61 +1,60 @@
 package main
 
-import "fmt"
-
-type TreeNode struct {
-	V int
-	L *TreeNode
-	R *TreeNode
-}
-
 var Tree = &TreeNode{
-	V: 1,
-	L: &TreeNode{
-		V: 7,
-		L: &TreeNode{
-			V: 4,
-			L: nil,
-			R: nil,
+	Val: 1,
+	Left: &TreeNode{
+		Val: 7,
+		Left: &TreeNode{
+			Val:   4,
+			Left:  nil,
+			Right: nil,
 		},
-		R: &TreeNode{
-			V: 5,
-			L: nil,
-			R: nil,
+		Right: &TreeNode{
+			Val:   5,
+			Left:  nil,
+			Right: nil,
 		},
 	},
-	R: &TreeNode{
-		V: 3,
-		L: &TreeNode{
-			V: 6,
-			L: nil,
-			R: nil,
+	Right: &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val:   6,
+			Left:  nil,
+			Right: nil,
 		},
-		R: &TreeNode{
-			V: 7,
-			L: nil,
-			R: nil,
+		Right: &TreeNode{
+			Val:   7,
+			Left:  nil,
+			Right: nil,
 		},
 	},
 }
 
-func main() {
-	var path []int
-	var res [][]int
+//func main() {
+//	var path []*TreeNode
+//	var res [][]*TreeNode
+//
+//	preOrderII(Tree, &res, &path)
+//	for i := range res {
+//		for _, node := range res[i] {
+//			fmt.Println(node.Val)
+//		}
+//	}
+//}
 
-	preOrder(Tree, &path, &res)
-	fmt.Println(res)
-}
-
-func preOrder(node *TreeNode, path *[]int, res *[][]int) {
-	if node == nil {
+/* 前序遍历：例题二 */
+func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
+	if root == nil || root.Val.(int) == 3 {
 		return
 	}
-	*path = append(*path, node.V)
-	if node.V == 7 { // 说明找到了路径
-		*res = append(*res, *path)
+	// 尝试
+	*path = append(*path, root)
+	if root.Val.(int) == 7 {
+		// 记录解
+		*res = append(*res, append([]*TreeNode{}, *path...))
 	}
-	preOrder(node.L, path, res)
-	preOrder(node.R, path, res)
-	// 路径退回到之前
+	preOrderII(root.Left, res, path)
+	preOrderII(root.Right, res, path)
+	// 回退,能走到这里，说明已经运行到了递归的归
 	*path = (*path)[:len(*path)-1]
 }

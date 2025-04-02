@@ -48,15 +48,15 @@ func Floyd(G *Graph) {
 	fmt.Println("打印每个顶点的路径")
 	for v := 0; v < G.NumVex; v++ {
 		for w := 0; w < G.NumVex; w++ {
-			fmt.Printf("V%d<-->V%d 权值:%d", v, w, D[v][w])
+			fmt.Printf("Val%d<-->Val%d 权值:%d", v, w, D[v][w])
 			k := P[v][w]
 			//起点
-			fmt.Printf("路径：V%d->", v)
+			fmt.Printf("路径：Val%d->", v)
 			for k != w {
-				fmt.Printf("V%d->", k)
+				fmt.Printf("Val%d->", k)
 				k = P[k][w]
 			}
-			fmt.Printf("V%d\n", w)
+			fmt.Printf("Val%d\n", w)
 		}
 		fmt.Printf("\n")
 	}

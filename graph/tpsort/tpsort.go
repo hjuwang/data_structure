@@ -24,7 +24,7 @@ func TPSort(G GraphAdjList) bool {
 		stack = stack[:len(stack)-1]
 		count++
 
-		fmt.Printf("V%d,", G.AdjList[gettop].Data)
+		fmt.Printf("Val%d,", G.AdjList[gettop].Data)
 		for e := G.AdjList[gettop].FirstEdge; e != nil; e = e.Next {
 			adjex := e.Adjvex
 			G.AdjList[adjex].In--
